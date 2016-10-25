@@ -1,16 +1,15 @@
-var x = [-20, 20];
+var bugs = [];
 
-function setup() {
-  createCanvas(320, 240);
-  println(x);
+function setup(){
+  createCanvas(640, 480);
+  background(0);
+
 }
 
 function draw() {
-  background(0);
-  
-  x[0]++;
-  x[1]++;
 
-  ellipse(x[0], 20, 20);
-  ellipse(x[1], 50, 20);
+}
+
+function JitterBug(tempX, tempY, tempDiameter){
+
 }
