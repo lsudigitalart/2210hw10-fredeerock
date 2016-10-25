@@ -24,25 +24,29 @@ function Particle(tempX, tempY) {
   this.posX = tempX;
   this.posY = tempY;
 
-  var vx = 10;
-  var vy = -10;
+  // var vx = 10;
+  // var vy = -10;
+  this.vx = random(-10, 10);
+  this.vy = random(-15, 15);
+
+  var particleSize = 10;
   var gravity = 1;
 
   this.move = function() {
-    this.posX += vx;
-    this.posY += vy;
-    vy += gravity;
+    this.posX += this.vx;
+    this.posY += this.vy;
+    this.vy += gravity;
 
     if(this.posY > height) {
-      vy *= -0.6;
-      vx *= 0.75;
-      this.posY = height;
+      this.vy *= -0.6;
+      this.vx *= 0.75;
+      this.posY = height - particleSize;
     }
 
   };
 
   this.display = function() {
-    ellipse(this.posX, this.posY, 50);
+    ellipse(this.posX, this.posY, particleSize);
   };
 
 }
