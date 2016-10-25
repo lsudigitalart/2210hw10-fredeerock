@@ -33,6 +33,12 @@ function Particle(tempX, tempY) {
     this.posY += vy;
     vy += gravity;
 
+    if(this.posY > height) {
+      vy *= -0.6;
+      vx *= 0.75;
+      this.posY = height;
+    }
+
   };
 
   this.display = function() {
