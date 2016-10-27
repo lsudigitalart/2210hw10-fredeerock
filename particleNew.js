@@ -14,9 +14,11 @@ function draw() {
     pa[i].display();
     pa[i].move();
   }
+  
   for(var n = 1; n < pa.length; n++){
     line(pa[n].posX, pa[n].posY, pa[n-1].posX, pa[n-1].posY);
   }
+
 }
 
 function mouseMoved(){
