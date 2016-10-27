@@ -14,7 +14,7 @@ function draw() {
     pa[i].display();
     pa[i].move();
   }
-  
+
   for(var n = 1; n < pa.length; n++){
     line(pa[n].posX, pa[n].posY, pa[n-1].posX, pa[n-1].posY);
   }
@@ -22,7 +22,7 @@ function draw() {
 }
 
 function mouseMoved(){
-  pa[pa.length] = new Particle(mouseX, mouseY);
+  pa[pa.length] = new Particle(mouseX, mouseY, random(255), random(255), random(255));
 }
 
 function mouseReleased(){
@@ -40,9 +40,12 @@ function mouseReleased(){
   // println(Particle);
 }
 
-function Particle(tempX, tempY){
+function Particle(tempX, tempY, tempR, tempG, tempB){
   this.posX = tempX;
   this.posY = tempY;
+  this.cR = tempR;
+  this.cG = tempG;
+  this.cB = tempB;
   var particleSize = 10;
 
   this.vx = random(-10, 10);
@@ -71,6 +74,8 @@ function Particle(tempX, tempY){
   };
 
   this.display = function() {
+    fill(this.cR, this.cG, this.cB);
+
     ellipse(this.posX, this.posY, particleSize);
   };
 
